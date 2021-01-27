@@ -29,6 +29,7 @@ namespace WpfApplication1
                 TextBlock.Content = "";
             else if (str == "=")
             {
+                // needs to create new way to implement
                 //TextBlock.Content = new DataTable().Compute(TextBlock.Content.ToString(),null).ToString();
                 TextBlock.Content = new Expression(TextBlock.Content.ToString()).calculate().ToString();
                 
