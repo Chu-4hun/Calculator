@@ -66,8 +66,12 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="Prog.xaml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Prog.xaml.cs">
+          <DependentUpon>Prog.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Properties\AssemblyInfo.cs">
             <SubType>Code</SubType>
         </Compile>

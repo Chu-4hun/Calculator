@@ -1,23 +1,22 @@
-﻿using System;
+﻿using System.Windows;
+using static WpfApplication1.MainWindow;
+using System;
 using System.Data;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using static WpfApplication1.Prog;
 using Expression = org.mariuszgromada.math.mxparser.Expression;
 
 namespace WpfApplication1
 {
- 
-    public partial class MainWindow : Window
+    public partial class Prog : Window
     {
-        public MainWindow()
+        public Prog()
         {
             InitializeComponent();
-            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+       private void Button_Click(object sender, RoutedEventArgs e)
         {
             string str = (string)((Button) e.OriginalSource).Content;
             
@@ -81,10 +80,10 @@ namespace WpfApplication1
         }
 
 
-        private void ProgCalc_OnClick(object sender, RoutedEventArgs e)
+        private void MainCalc_OnClick(object sender, RoutedEventArgs e)
         {
-            Prog progwindow = new Prog();
-            progwindow.Show();
+            MainWindow Main = new MainWindow();
+            Main.Show();
             
             this.Close();
         }

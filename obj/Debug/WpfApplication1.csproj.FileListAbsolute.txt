@@ -15,3 +15,5 @@ D:\Rider\Prjects\WpfApplication1\obj\Debug\WpfApplication1.exe
 D:\Rider\Prjects\WpfApplication1\obj\Debug\WpfApplication1.pdb
 D:\Rider\Prjects\WpfApplication1\bin\Debug\MathParser.org-mXparser.dll
 D:\Rider\Prjects\WpfApplication1\obj\Debug\WpfApplication1.csproj.CopyComplete
+D:\Rider\Prjects\WpfApplication1\obj\Debug\Prog.g.cs
+D:\Rider\Prjects\WpfApplication1\obj\Debug\Prog.baml
