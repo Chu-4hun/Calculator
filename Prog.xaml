@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="Калькулятор программиста" Height="500" Width="500" MinHeight="500" MinWidth="500" WindowStyle="ThreeDBorderWindow">
-    <Grid x:Name="ProgGrid" Background= "#2a2a2a" ShowGridLines="False">
+    <Grid x:Name="ProgGrid" Background= "#2a2a2a" ShowGridLines="True">
         <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -25,40 +27,53 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Foreground="Cornsilk" FontSize="20" VerticalAlignment="Center" x:Name="TextBlock"/>
+        <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" Foreground="Cornsilk" Background="#015C65" FontSize="20" VerticalAlignment="Center" x:Name="OutputlaLabel"/>
+        <Label Grid.Column="1" Grid.Row="1" Foreground="Cornsilk" FontSize="20" VerticalAlignment="Center" x:Name="HEXlabel"></Label>
+        <Label Grid.Column="1" Grid.Row="2" Foreground="Cornsilk" FontSize="20" VerticalAlignment="Center" x:Name="DEClabel"></Label>
+        <Label Grid.Column="1" Grid.Row="3" Foreground="Cornsilk" FontSize="20" VerticalAlignment="Center" x:Name="OCTlabel"></Label>
+        <Label Grid.Column="1" Grid.Row="4" Foreground="Cornsilk" FontSize="20" VerticalAlignment="Center" x:Name="BINlabel"></Label>
         
-        <Button Grid.Column="4" Grid.Row="3" Name="Backspace" Click="Backspace_OnClick" BorderThickness="0" Background="#009E8E" Foreground="Cornsilk" Margin="1.5">⌫</Button>
-        <Button Grid.Column="1" Grid.Row="3" Name="Percent" Click="Percent_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">%</Button>
+        <Button Grid.Column="0" Grid.Row="1" Click="HEX_button" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">HEX</Button>
+        <Button Grid.Column="0" Grid.Row="2" Click="DEC_button" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">DEC</Button>
+        <Button Grid.Column="0" Grid.Row="3" Click="OCT_button" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">OCT</Button>
+        <Button Grid.Column="0" Grid.Row="4" Click="BIN_button" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">BIN</Button>
         
-        <Button Grid.Column="2" Grid.Row="3" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">C</Button>
+        <Button Grid.Column="4" Grid.Row="5" Name="Backspace" Click="Backspace_OnClick" BorderThickness="0" Background="#009E8E" Foreground="Cornsilk" Margin="1.5">⌫</Button>
+        <Button Grid.Column="3" Grid.Row="6" Name="Percent" Click="Percent_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">%</Button>
         
-        <Button Grid.Column="1" Grid.Row="4" Click="OneDivX_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">1/x</Button>
+        <Button Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Click="AC_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">CL</Button>
         
-        <Button Grid.Column="3" Grid.Row="4" Click="SQRT_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">√</Button>
+        <Button Grid.Column="1" Grid.Row="6" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">(</Button>
+        <Button Grid.Column="2" Grid.Row="6" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">)</Button>
         
-        <Button Grid.Column="1" Grid.Row="7" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">1</Button>
-        <Button Grid.Column="2" Grid.Row="7" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">2</Button>
-        <Button Grid.Column="3" Grid.Row="7" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">3</Button>
-        <Button Grid.Column="1" Grid.Row="6" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">4</Button>
-        <Button Grid.Column="2" Grid.Row="6" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">5</Button>
-        <Button Grid.Column="3" Grid.Row="6" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">6</Button>
-        <Button Grid.Column="1" Grid.Row="5" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">7</Button>
-        <Button Grid.Column="2" Grid.Row="5" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">8</Button>
-        <Button Grid.Column="3" Grid.Row="5" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">9</Button>
-        <Button Grid.Column="2" Grid.Row="8" Click="Button_Click" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">0</Button>
+        <Button Grid.Column="1" Grid.Row="9" Click="Button_Click" x:Name="one_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">1</Button>
+        <Button Grid.Column="2" Grid.Row="9" Click="Button_Click" x:Name="two_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">2</Button>
+        <Button Grid.Column="3" Grid.Row="9" Click="Button_Click" x:Name="three_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">3</Button>
+        <Button Grid.Column="1" Grid.Row="8" Click="Button_Click" x:Name="four_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">4</Button>
+        <Button Grid.Column="2" Grid.Row="8" Click="Button_Click" x:Name="five_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">5</Button>
+        <Button Grid.Column="3" Grid.Row="8" Click="Button_Click" x:Name="six_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">6</Button>
+        <Button Grid.Column="1" Grid.Row="7" Click="Button_Click" x:Name="seven_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">7</Button>
+        <Button Grid.Column="2" Grid.Row="7" Click="Button_Click" x:Name="eigth_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">8</Button>
+        <Button Grid.Column="3" Grid.Row="7" Click="Button_Click" x:Name="nine_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">9</Button>
+        <Button Grid.Column="2" Grid.Row="10" Click="Button_Click" x:Name="zero_butn" BorderThickness="0" Background="#181818" Foreground="Cornsilk" Margin="1.5">0</Button>
         
-        <Button Grid.Column="4" Grid.Row="8" Click="Button_Click" BorderThickness="0" Background="#009E8E" Foreground="Cornsilk" Margin="1.5">=</Button>
-        <Button Grid.Column="3" Grid.Row="3" Click="AC_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">AC</Button>
-        <Button Grid.Column="2" Grid.Row="4" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">^</Button>
+        <Button Grid.Column="0" Grid.Row="5" BorderThickness="0" x:Name="A_btn" Background="#181818" Foreground="Cornsilk" Margin="1.5">A</Button>
+        <Button Grid.Column="0" Grid.Row="6" BorderThickness="0" x:Name="B_btn" Background="#181818" Foreground="Cornsilk" Margin="1.5">B</Button>
+        <Button Grid.Column="0" Grid.Row="7" BorderThickness="0" x:Name="C_btn" Background="#181818" Foreground="Cornsilk" Margin="1.5">C</Button>
+        <Button Grid.Column="0" Grid.Row="8" BorderThickness="0" x:Name="D_btn" Background="#181818" Foreground="Cornsilk" Margin="1.5">D</Button>
+        <Button Grid.Column="0" Grid.Row="9" BorderThickness="0" x:Name="E_btn" Background="#181818" Foreground="Cornsilk" Margin="1.5">E</Button>
+        <Button Grid.Column="0" Grid.Row="10" BorderThickness="0" x:Name="F_btn" Background="#181818" Foreground="Cornsilk" Margin="1.5">F</Button>
         
-        <Button Grid.Column="1" Grid.Row="8" Click="PlusMinus_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">+/-</Button>
-        <Button Grid.Column="3" Grid.Row="8" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">. </Button>
+        <Button Grid.Column="4" Grid.Row="10" Click="Button_Click" BorderThickness="0" Background="#009E8E" Foreground="Cornsilk" Margin="1.5">=</Button>
+       
+        <Button Grid.Column="1" Grid.Row="10" Click="PlusMinus_OnClick" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">+/-</Button>
+        <Button Grid.Column="3" Grid.Row="10" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">. </Button>
         
         
-        <Button Grid.Column="4" Grid.Row="5" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">*</Button>
-        <Button Grid.Column="4" Grid.Row="6" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">-</Button>
-        <Button Grid.Column="4" Grid.Row="7" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">+</Button>
-        <Button Grid.Column="4" Grid.Row="4" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">/</Button>
+        <Button Grid.Column="4" Grid.Row="7" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">*</Button>
+        <Button Grid.Column="4" Grid.Row="8" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">-</Button>
+        <Button Grid.Column="4" Grid.Row="9" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">+</Button>
+        <Button Grid.Column="4" Grid.Row="6" Click="Button_Click" BorderThickness="0" Background="#015C65" Foreground="Cornsilk" Margin="1.5">/</Button>
         
         <Menu Grid.ColumnSpan="2" Background="Transparent" Foreground="Cornsilk" Height="20" VerticalAlignment="Top">
             <MenuItem BorderThickness="0" Header="Калькулятор">
